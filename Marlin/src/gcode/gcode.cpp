@@ -365,7 +365,7 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
 
     case 'M': switch (parser.codenum) {
 
-      #if HAS_RESUME_CONTINUE
+      #if 0 // HAS_RESUME_CONTINUE
         case 0:                                                   // M0: Unconditional stop - Wait for user button press on LCD
         case 1: M0_M1(); break;                                   // M1: Conditional stop - Wait for user button press on LCD
       #endif

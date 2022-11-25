@@ -14,7 +14,7 @@ void WTGL_Screen_Level::Init()
 	activated = true;
 	wtgl.busy = true;
 	back_enable = false;
-	queue.enqueue_one_now("G33");
+	queue.enqueue_one_now("G33 V3 P3");
     gserial.SendByte(REG_BUSY, 1);
 }
 

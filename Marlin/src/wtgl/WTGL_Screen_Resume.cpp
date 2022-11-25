@@ -35,7 +35,7 @@ void WTGL_Screen_Resume::Init()
 
 void WTGL_Screen_Resume::Update()
 {
-	char headgcode[MAX_CMD_SIZE + 16] = {0}, str_1[16], str_2[16], flchar[10] = {0};
+	char headgcode[MAX_CMD_SIZE + 16] = {0}, str_1[16], str_2[16];
     static uint32_t _spos;
 
 	switch (state)

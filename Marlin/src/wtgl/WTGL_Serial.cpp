@@ -87,7 +87,9 @@ void WTGL_Serial::Process()
 	uint8_t b;
 
     if (inp.State() != PS_START && inp.isTimeout())
+    {
         inp.Reset();
+    }
 
 	while (LCD_SERIAL.available() > 0)
 	{

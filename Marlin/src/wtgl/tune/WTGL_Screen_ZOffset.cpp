@@ -85,9 +85,9 @@ void WTGL_Screen_ZOffset::KeyProcess(uint16_t addr, uint8_t *data, uint8_t data_
     }
     else if (addr == VAR_ZOFFSET_DOWN)  
     {
-        zoffset_current -= 0.1;
+        zoffset_current -= 0.05;
         if (zoffset_current >= -9.9) 
-            current_position[Z_AXIS] -= 0.1;
+            current_position[Z_AXIS] -= 0.05;
         else
             zoffset_current = -9.9;
         manual_move_to_current(Z_AXIS);
@@ -95,9 +95,9 @@ void WTGL_Screen_ZOffset::KeyProcess(uint16_t addr, uint8_t *data, uint8_t data_
     }
     else if (addr == VAR_ZOFFSET_UP)  
     {
-        zoffset_current += 0.1;
+        zoffset_current += 0.05;
         if (zoffset_current <= 9.9)
-            current_position[Z_AXIS] += 0.1;
+            current_position[Z_AXIS] += 0.05;
         else
             zoffset_current = 9.9;
         manual_move_to_current(Z_AXIS);
