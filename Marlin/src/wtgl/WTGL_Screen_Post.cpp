@@ -19,7 +19,7 @@
 #define BED_LOW_HEATING_TEMP		3
 #define BED_HIGH_HEATING_TEMP		2
 #define NOZZLE_THRESHOLD			150
-#define BED_THRESHOLD				50
+#define BED_THRESHOLD				60
 #define XY_WAITING					20000
 #define Z_WAITING					20000
 
