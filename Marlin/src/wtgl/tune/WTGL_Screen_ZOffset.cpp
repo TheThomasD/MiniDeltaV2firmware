@@ -31,7 +31,7 @@ void WTGL_Screen_ZOffset::manage_manual_move()
 void WTGL_Screen_ZOffset::Init()
 {
     queue.enqueue_one_now("G28");
-	queue.enqueue_one_now("G29");
+	queue.enqueue_one_now("M420 S1");
 	queue.enqueue_one_now("G1 X0 Y0 Z10 F2000");
 	queue.enqueue_one_now("G1 Z0 F400");
     wtgl.SendBusy(1);

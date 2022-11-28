@@ -457,11 +457,11 @@
   // #endif
 
   // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-  #define DELTA_PRINTABLE_RADIUS 55  // (mm) OK
+  #define DELTA_PRINTABLE_RADIUS 55.0  // (mm) OK
   // Center-to-center distance of the holes in the diagonal push rods.
   #define DELTA_DIAGONAL_ROD 120.0        // (mm) OK
     // Horizontal offset from middle of printer to smooth rod center.
-  #define DELTA_SMOOTH_ROD_OFFSET 110   // (mm) OK
+  //not referenced #define DELTA_SMOOTH_ROD_OFFSET 110   // (mm) OK
   // Horizontal offset of the universal joints on the end effector.
   #define DELTA_EFFECTOR_OFFSET 28.5      // (mm) OK (or 29?)
   // Horizontal offset of the universal joints on the carriages.
@@ -469,21 +469,21 @@
   // Horizontal distance bridged by diagonal push rods when effector is centered.
   //#define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-(DELTA_EFFECTOR_OFFSET)-(DELTA_CARRIAGE_OFFSET))          // (mm) Get this value from G33 auto calibrate
 
-  #define DELTA_RADIUS 61.81
+  #define DELTA_RADIUS 61.27
 
   // Distance between bed and nozzle Z home position
-  #define DELTA_HEIGHT 122.00             // (mm) Get this value from G33 auto calibrate
+  #define DELTA_HEIGHT 119.86             // (mm) Get this value from G33 auto calibrate
 
-  #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
+  #define DELTA_ENDSTOP_ADJ { -0.42, -0.11, 0.00 } // Get these values from G33 auto calibrate
 
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
   // measured in degrees anticlockwise looking from above the printer
-  #define DELTA_TOWER_ANGLE_TRIM { 0.0, 0.0, 0.0 } // Get these values from G33 auto calibrate
+  #define DELTA_TOWER_ANGLE_TRIM { -0.12, 0.38, -0.26 } // Get these values from G33 auto calibrate
 
   // Delta radius and diagonal rod adjustments (mm)
-  //#define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }
-  //#define DELTA_DIAGONAL_ROD_TRIM_TOWER { 0.0, 0.0, 0.0 }
+  #define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }
+  #define DELTA_DIAGONAL_ROD_TRIM_TOWER { 0.0, 0.0, 0.0 }
 
 #endif
 
@@ -621,7 +621,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { XYZ_STEPS, XYZ_STEPS, XYZ_STEPS, 93.74}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { XYZ_STEPS, XYZ_STEPS, XYZ_STEPS, 93.55}
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -815,7 +815,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0.17 }
+#define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -825,7 +825,7 @@
 #define XY_PROBE_SPEED 2000
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
+#define Z_PROBE_SPEED_FAST (HOMING_FEEDRATE_Z / 2)
 
 // Feedrate (mm/m) for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 5)
@@ -1063,8 +1063,8 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#define AUTO_BED_LEVELING_BILINEAR
-//#define AUTO_BED_LEVELING_UBL
+//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_UBL
 //#define MESH_BED_LEVELING
 
 /**
@@ -1143,7 +1143,7 @@
   //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
   #define MESH_INSET 1              // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 15      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   #define UBL_MESH_EDIT_MOVES_Z     // Sophisticated users prefer no movement of nozzle
